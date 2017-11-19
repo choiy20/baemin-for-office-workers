@@ -1,3 +1,11 @@
 {% extends "base.html" %}
 {% block title %}baemin{% endblock %}
-{% block body %} index {% endblock %}
+{% block body %}
+    <div class="container">
+        {% if user.is_authenticated %}
+            <div>Welcome back, {{ user.username }}!</div>
+        {% else %}
+            <div> Please log in.</div>
+        {% endif %}
+    </div>
+{% endblock %}
