@@ -1,9 +1,47 @@
 {% extends "base.html" %}
 {% block title %}baemin{% endblock %}
 {% block body %}
+    {% include "navbar.html" %}
     <div class="container">
         {% if user.is_authenticated %}
-            <div>Welcome back, {{ user.username }}!</div>
+            {% if user.partner %}
+                Welcome to Foodie!
+                <div>
+                    {{ user.partner.name }}
+                </div>
+                <div>
+                    {{ user.partner.contact }}
+                </div>
+                <div>
+                    {{ user.partner.address }}
+                </div>
+                <div>
+                    {{ user.partner.description }}
+                </div>
+            {% else %}
+                Please enter additional information.
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {#                    <div class="form-group">#}
+                            {#                        <input type="text" name="name" class="form-control">#}
+                            {#                    </div>#}
+                            {#                    <div>#}
+                            {#                        <input type="text" name="contact">#}
+                            {#                    </div>#}
+                            {#                    <div>#}
+                            {#                        <input type="text" name="address">#}
+                            {#                    </div>#}
+                            {#                    <div>#}
+                            {#                        <input type="text" name="description">#}
+                            {#                    </div>#}
+                            {{ form.as_p }}
+                            <button class="btn btn-default">Save</button>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
         {% else %}
             <div> Please log in.</div>
         {% endif %}
