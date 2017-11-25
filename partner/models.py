@@ -22,3 +22,20 @@ class Partner(models.Model):
         max_length=200,
         verbose_name="Company Description",
     )
+
+class Menu(models.Model):
+    partner = models.ForeignKey(
+        Partner,
+        on_delete=models.CASCADE,
+    )
+    image = models.ImageField(
+        verbose_name="Menu Image",
+    )
+    name = models.CharField(
+        max_length=50,
+        verbose_name="Menu Name",
+    )
+    price = models.PositiveIntegerField(
+        verbose_name="Price",
+    )
+

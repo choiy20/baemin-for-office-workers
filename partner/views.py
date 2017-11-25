@@ -5,7 +5,8 @@ from django.contrib.auth import (
 )
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from .forms import PartnerForm
+from .forms import PartnerForm, MenuForm
+from .models import Menu
 
 
 # Create your views here.
@@ -17,7 +18,7 @@ def index(request):
     elif request.method == "POST":
         partner_form = PartnerForm(request.POST)
         if partner_form.is_valid():
-            partner=partner_form.save(commit=False)
+            partner = partner_form.save(commit=False)
             partner.user = request.user
             partner.save()
             return redirect("/partner/")
@@ -60,3 +61,53 @@ def signup(request):
 def logout(request):
     auth_logout(request)
     return redirect("/partner/")
+
+
+def edit_info(request):
+    ctx = {}
+
+    # Article.object.all() #query 데이터베이스에 특정한 질문을 통해 테이터를 가져오는 행위
+
+    if request.method == "GET":
+        partner_form = PartnerForm(instance=request.user.partner)
+        ctx.update({"form": partner_form})
+    elif request.method == "POST":
+        partner_form = PartnerForm(
+            request.POST,
+            instance=request.user.partner,
+        )
+        if partner_form.is_valid():
+            partner = partner_form.save(commit=False)
+            partner.user = request.user
+            partner.save()
+            return redirect("/partner/")
+        else:
+            ctx.update({"form": partner_form})
+
+    return render(request, "edit_info.html", ctx)
+
+
+def menu(request):
+    ctx = {}
+    menu_list = Menu.objects.filter(partner=request.user.partner)
+    ctx.update({"menu_list": menu_list})
+
+    return render(request, "menu_list.html", ctx)
+
+
+def menu_add(request):
+    ctx = {}
+    if request.method == "GET":
+        form = MenuForm()
+        ctx.update({"form": form})
+    elif request.method == "POST":
+        form = MenuForm(request.POST, request.FILES)  # 파일을 함께 저장한다라는 뜻
+        if form.is_valid():
+            menu = form.save(commit=False)
+            menu.partner = request.user.partner
+            menu.save()
+            return redirect("partner/menu/")
+        else:
+            ctx.update({"form": form})
+
+    return render(request, "menu_add.html", ctx)

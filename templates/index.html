@@ -5,19 +5,51 @@
     <div class="container">
         {% if user.is_authenticated %}
             {% if user.partner %}
-                Welcome to Foodie!
-                <div>
-                    {{ user.partner.name }}
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <h2>Welcome to Foodie!</h2>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    Name of Restaurant
+                                </th>
+                                <td>
+                                    {{ user.partner.name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Phone Number
+                                </th>
+                                <td>
+                                    {{ user.partner.contact }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Address
+                                </th>
+                                <td>
+                                    {{ user.partner.address }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Description
+                                </th>
+                                <td>
+                                    {{ user.partner.description }}
+                                </td>
+                            </tr>
+                        </table>
+                        <a href="/partner/edit/">
+                            <button class="btn btn-default btn-block">
+                                Edit
+                            </button>
+                        </a>
+                    </div>
                 </div>
-                <div>
-                    {{ user.partner.contact }}
-                </div>
-                <div>
-                    {{ user.partner.address }}
-                </div>
-                <div>
-                    {{ user.partner.description }}
-                </div>
+
             {% else %}
                 Please enter additional information.
                 <div class="row">

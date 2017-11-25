@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+    {% include "navbar.html" %}
+    <div class="container">
+        <div class="col-sm-6 col-sm-offset-3">
+            이 곳에 메뉴를 추가하는 기능을 넣을 예정입니다. 폼 안에 저장을 하는 방식이 될 것입니다.
+            <form enctype="multipart/form-data" method="post" action="">
+                {% csrf_token %}
+                <div>{{ form }}</div>
+                <button class="btn btn-default btn-block">Save and Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

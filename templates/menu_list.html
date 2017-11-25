@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+    {% include "navbar.html" %}
+    <div class="container">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h2>Your Menu</h2>
+            <table class="table">
+                <tr>
+                    <th>Image</th>
+                    <th>Menu Name</th>
+                    <th>Price</th>
+                </tr>
+                {% for menu in menu_list %}
+                    <tr>
+                        <td><img style="max-width:100px" src="{{ menu.image.url }}"></td>
+                        <td>{{ menu.name }}</td>
+                        <td>{{ menu.price }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <a href="/partner/menu/add/">
+                <button class="btn btn-default btn-block">Add Menu</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}baemin{% endblock %}
+{% block body %}
+    {% include "navbar.html" %}
+    <div class="container">
+        Please edit your information.
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-default">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
