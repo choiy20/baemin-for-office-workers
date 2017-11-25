@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="755248b7-0688-44dd-ab9d-e33b8e359072" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/edit_info.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/menu_add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/menu_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baemin/settings.py" afterPath="$PROJECT_DIR$/baemin/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baemin/urls.py" afterPath="$PROJECT_DIR$/baemin/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partner/admin.py" afterPath="$PROJECT_DIR$/partner/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partner/forms.py" afterPath="$PROJECT_DIR$/partner/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partner/models.py" afterPath="$PROJECT_DIR$/partner/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partner/urls.py" afterPath="$PROJECT_DIR$/partner/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partner/views.py" afterPath="$PROJECT_DIR$/partner/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -352,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511312581640</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adding &quot;Creating menu list&quot;">
+      <created>1511597565597</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1511597565597</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -391,7 +383,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding signup, login and logout" />
     <MESSAGE value="Adding &quot;registration of company information&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding &quot;registration of company information&quot;" />
+    <MESSAGE value="Adding &quot;Creating menu list&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding &quot;Creating menu list&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
