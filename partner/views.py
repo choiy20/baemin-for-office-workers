@@ -106,7 +106,31 @@ def menu_add(request):
             menu = form.save(commit=False)
             menu.partner = request.user.partner
             menu.save()
-            return redirect("partner/menu/")
+            return redirect("/partner/menu/")
+        else:
+            ctx.update({"form": form})
+
+    return render(request, "menu_add.html", ctx)
+
+
+def menu_detail(request, menu_id):
+    menu = Menu.objects.get(id=menu_id)
+    ctx = {"menu":menu}
+    return render(request, "menu_detail.html", ctx)
+
+def menu_edit(request, menu_id):
+    ctx = {"replacement":"Edit"}
+    menu = Menu.objects.get(id=menu_id)
+    if request.method == "GET":
+        form = MenuForm(instance=menu)
+        ctx.update({"form": form})
+    elif request.method == "POST":
+        form = MenuForm(request.POST, request.FILES, instance=menu)  # 파일을 함께 저장한다라는 뜻
+        if form.is_valid():
+            menu = form.save(commit=False)
+            menu.partner = request.user.partner
+            menu.save()
+            return redirect("/partner/menu/")
         else:
             ctx.update({"form": form})
 
